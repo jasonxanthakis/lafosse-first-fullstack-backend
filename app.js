@@ -5,7 +5,7 @@ const fruitsRoutes = require("./routes/fruitsRoutes")
 const nutritionRoutes = require("./routes/nutritionRoutes")
 
 fruitsApp.get('/', (req, res) => {
-   res.header("Access-Control-Allow-Origin", "https://fruit-salad-builder.onrender.com/");
+   res.setHeader("Access-Control-Allow-Origin", "https://fruit-salad-builder.onrender.com/");
    res.send('Hello Fruity!')
 })
 fruitsApp.use(cors());
