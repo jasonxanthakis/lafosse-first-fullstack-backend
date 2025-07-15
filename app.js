@@ -28,7 +28,7 @@ fruitsApp.use(function (req, res, next) {
     next();
 });
 
-fruitsApp.use(cors());
+fruitsApp.use(cors({origin: 'https://fruit-salad-builder.onrender.com'}));
 fruitsApp.use(express.json());
 fruitsApp.use('/fruits', fruitsRoutes)
 fruitsApp.use('/nutrition', nutritionRoutes)
