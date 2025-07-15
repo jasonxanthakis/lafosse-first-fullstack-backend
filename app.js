@@ -16,17 +16,19 @@ fruitsApp.get('/', (req, res) => {
 fruitsApp.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.append('Access-Control-Allow-Origin', 'https://fruit-salad-builder.onrender.com');
+    res.set('Access-Control-Allow-Origin', 'https://fruit-salad-builder.onrender.com');
 
     // Request methods you wish to allow
-    res.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.append('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.set('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
-    res.append('Access-Control-Allow-Credentials', false);
+    res.set('Access-Control-Allow-Credentials', false);
+
+   console.log(res);
 
     // Pass to next layer of middleware
     next();
