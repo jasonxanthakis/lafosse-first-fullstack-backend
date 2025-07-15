@@ -4,14 +4,18 @@ const cors = require('cors');
 const fruitsRoutes = require("./routes/fruitsRoutes")
 const nutritionRoutes = require("./routes/nutritionRoutes")
 
-
-fruitsApp.use(cors({origin: 'https://fruit-salad-builder.onrender.com'}));
-fruitsApp.use(express.json());
+const corsOptions = {
+  origin: 'https://fruit-salad-builder.onrender.com',
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'X-Requested-With'],
+  credentials: false, // change to true if you want to allow cookies
+};
 
 fruitsApp.get('/', (req, res) => {
    res.send('Hello Fruity!')
 })
 
+/*
 // Add headers before the routes are defined
 fruitsApp.use(function (req, res, next) {
 
@@ -28,11 +32,15 @@ fruitsApp.use(function (req, res, next) {
     // to the API (e.g. in case you use sessions)
     res.set('Access-Control-Allow-Credentials', false);
 
-   console.log(res);
-
     // Pass to next layer of middleware
     next();
 });
+*/
+
+fruitsApp.use(cors(corsOptions));
+fruitsApp.options('*', cors(corsOptions));
+
+fruitsApp.use(express.json());
 
 fruitsApp.use('/fruits', fruitsRoutes)
 fruitsApp.use('/nutrition', nutritionRoutes)
