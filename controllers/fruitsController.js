@@ -14,7 +14,8 @@ const showFruit = async (req, res) => {
 	
     try {
         const fruit = await FruitModel.getFruit(name);
-        res.status(200).header('Access-Control-Allow-Origin', 'https://fruit-salad-builder.onrender.com').send(fruit);
+        res.header('Access-Control-Allow-Origin', 'https://fruit-salad-builder.onrender.com');
+        res.status(200).send(fruit);
     } catch(err) {
 	    res.status(404).send({error: err})
     }
