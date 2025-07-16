@@ -5,7 +5,7 @@ const fruitsRoutes = require("./routes/fruitsRoutes")
 const nutritionRoutes = require("./routes/nutritionRoutes")
 
 const corsOptions = {
-  origin: 'https://fruit-salad-builder.onrender.com',
+  origin: 'https://fruit-salad-builder-backend.onrender.com',
   methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'X-Requested-With'],
   credentials: false, // change to true if you want to allow cookies
